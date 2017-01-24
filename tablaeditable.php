@@ -27,7 +27,6 @@ mysqli_close($conexion);
 ?>
 <form action="procesar4.php" method="POST">
 	<div class="container">
-   <input type="hidden" name="factura" value="<?=$rs['factura']?>">
 	<table class="table">
     <thead>
 
@@ -46,8 +45,8 @@ mysqli_close($conexion);
       <td><?=$rs['id']?></td>
       <td><?=$rs['nombre']?></td>
       <td><?=$rs['apellido']?></td>
-
-        <td><input type="text" name="articulo" disabled value="<?=$rs['factura']?>"><button class="mas">+</buttom><button class="menos">-</buttom></td>
+			<input type="hidden" name="id[]"  value="<?=$rs['id']?>">
+        <td><input type="text" name="factura[]" readonly value="<?=$rs['factura']?>"><button class="mas">+</buttom><button class="menos">-</buttom></td>
       </tr>
             <?php
 }

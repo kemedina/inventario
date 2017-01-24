@@ -33,18 +33,18 @@
 </div>
 
 <?php
- die(var_dump($_POST));
+$registro = $_POST['id'];
 $conexion=mysqli_connect("localhost","root","","inventario") or
  die("Problemas con la conexión");
 
-
+ while($rs = mysqli_fetch_array($registro)){
 mysqli_query($conexion, "update tabla
                           set factura='$_REQUEST[factura]'
                         where id='$_REQUEST[id]'") or
   die("Problemas en el select:".mysqli_error($conexion));
   echo "El mail fue modificado con exito";
 
-
+}
 
 ?>
 
