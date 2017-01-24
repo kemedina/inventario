@@ -33,14 +33,16 @@
 </div>
 
 <?php
-$registro = $_POST['id'];
+$id = $_POST['id'];
+$factura = $_POST['factura'];
 $conexion=mysqli_connect("localhost","root","","inventario") or
  die("Problemas con la conexión");
 
- while($rs = mysqli_fetch_array($registro)){
+for($i=0;$i<count($id);$i++) {
+
 mysqli_query($conexion, "update tabla
-                          set factura='$_REQUEST[factura]'
-                        where id='$_REQUEST[id]'") or
+                          set factura='$factura[$i]'
+                        where id='$id[$i]'") or
   die("Problemas en el select:".mysqli_error($conexion));
   echo "El mail fue modificado con exito";
 
